@@ -2,50 +2,14 @@
 {
     namespace ConsoleApp3
     {
-        public class Student
-        {
-            public string name { get; set; }
-            public double grade1 { get; set; }
-            public double grade2 { get; set; }
-            public double grade3 { get; set; }
-
-            public Student(string name, double grade1, double grade2, double grade3)
-            {
-                this.name = name;
-                this.grade1 = grade1;
-                this.grade2 = grade2;
-                this.grade3 = grade3;
-            }
-
-            public double Average(double grade1, double grade2, double grade3)
-            {
-                double sum = grade1 + grade2 + grade3;
-                double average = sum / 3;
-                Console.WriteLine($"El promedio del estudiante es de: {average}");
-
-                return average;
-            }
-
-            public static bool IsAproved(double average)
-            {
-                if (average < 0) { return false; }
-                if (average > 60) { return true; }
-
-                return false;
-            }
-
-            public void ShowInformation()
-            {
-                Console.WriteLine($"Nombre: {name}");
-                Console.WriteLine($"Nota 1: {grade1}");
-                Console.WriteLine($"Nota 2: {grade2}");
-                Console.WriteLine($"Nota 3: {grade3}");
-            }
-        }
-
         internal class Program
         {
             static void Main(string[] args)
+            {
+
+            }
+
+            static void Exercise01(string[] args)
             {
                 List<Student> students = new List<Student>();
                 Dictionary<Student, double> averages = new Dictionary<Student, double>();
@@ -94,7 +58,53 @@
                 }
                 Console.WriteLine($"El estudiante con el mejor promedio es {averageMax.Key.name} y su promedio fue de {averageMax.Value}");
             }
+
+            static void Exercise02()
+            {
+                List<Product> products = new List<Product>();
+                Dictionary<Product, double> prices = new Dictionary<Product, double>();
+
+                Console.WriteLine("¿Cuántos productos desea ingresar?");
+                int count = int.Parse(Console.ReadLine());
+
+                for (int i = 0; i < count; i++)
+                {
+                    Console.Write("Ingrese el nombre del producto: ");
+                    string name = Console.ReadLine();
+
+                    Console.Write("Ingrese el precio del producto: ");
+                    double price = double.Parse(Console.ReadLine());
+
+                    Console.Write("Ingrese la cantidad actual del producto: ");
+                    int quantity = int.Parse(Console.ReadLine());
+
+                    Product product = new Product(name, price, quantity);
+                    products.Add(product);
+                }
+
+                double totalValue = 0;
+                Console.WriteLine("Productos registrados: ");
+                foreach (Product product in products)
+                {
+                    Console.WriteLine($"Producto: {product.name}");
+                    Console.WriteLine($"    - Precio: {product.price}");
+                    Console.WriteLine($"    - Cantidad: {product.quantity}");
+
+                    totalValue += product.TotalValue();
+                    prices.Add(product, product.price);
+                }
+                Console.WriteLine($"El valor total del inventario es: Q{totalValue:F2}");
+
+                KeyValuePair<Product, double> highestPrice = new KeyValuePair<Product, double>();
+                foreach (var item in prices)
+                {
+                    if (item.Value > highestPrice.Value)
+                    {
+                        highestPrice = item;
+                    }
+                }
+                Console.WriteLine($"El producto con el mayor costo es: {highestPrice.Key.name} y su precio es {highestPrice.Value}");
+            }
         }
     }
-
 }
