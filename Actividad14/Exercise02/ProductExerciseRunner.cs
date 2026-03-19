@@ -5,10 +5,13 @@ namespace Actividad14.Exercise02
         public static void Run()
         {
             List<Product> products = new List<Product>();
-            Dictionary<Product, double> prices = new Dictionary<Product, double>();
 
             Console.WriteLine("¿Cuántos productos desea ingresar?");
-            int count = int.Parse(Console.ReadLine()!);
+            if (!int.TryParse(Console.ReadLine(), out int count) || count <= 0)
+            {
+                Console.WriteLine("Cantidad inválida.");
+                return;
+            }
 
             for (int i = 0; i < count; i++)
             {
@@ -16,41 +19,61 @@ namespace Actividad14.Exercise02
                 string name = Console.ReadLine()!;
 
                 Console.Write("Ingrese el precio del producto: ");
-                double price = double.Parse(Console.ReadLine()!);
+                double price = ReadDouble();
 
                 Console.Write("Ingrese la cantidad actual del producto: ");
-                int quantity = int.Parse(Console.ReadLine()!);
+                int quantity = ReadInt();
 
-                Product product = new Product(name, price, quantity);
-                products.Add(product);
+                products.Add(new Product(name, price, quantity));
             }
 
             double totalValue = 0;
-            Console.WriteLine("Productos registrados: ");
-            foreach (Product product in products)
+            Console.WriteLine("Productos registrados:");
+            foreach (var product in products)
             {
                 Console.WriteLine($"Producto: {product.Name}");
                 Console.WriteLine($"    - Precio: {product.Price}");
                 Console.WriteLine($"    - Cantidad: {product.Quantity}");
-
                 totalValue += product.TotalValue();
-                prices.Add(product, product.Price);
             }
             Console.WriteLine($"El valor total del inventario es: Q{totalValue:F2}");
 
-            KeyValuePair<Product, double> highestPrice = new KeyValuePair<Product, double>();
-            foreach (var item in prices)
+            if (products.Count > 0)
             {
-                if (item.Value > highestPrice.Value)
+                var mostExpensive = products[0];
+                foreach (var product in products)
                 {
-                    highestPrice = item;
+                    if (product.Price > mostExpensive.Price)
+                    {
+                        mostExpensive = product;
+                    }
                 }
+                Console.WriteLine($"El producto con el mayor costo es: {mostExpensive.Name} y su precio es {mostExpensive.Price}");
             }
-            if (highestPrice.Key != null)
+            else
             {
-                Console.WriteLine($"El producto con el mayor costo es: {highestPrice.Key.Name} y su precio es {highestPrice.Value}");
+                Console.WriteLine("No hay productos registrados.");
+            }
+        }
+
+        private static double ReadDouble()
+        {
+            while (true)
+            {
+                if (double.TryParse(Console.ReadLine(), out double value))
+                    return value;
+                Console.WriteLine("Valor inválido, intente de nuevo:");
+            }
+        }
+
+        private static int ReadInt()
+        {
+            while (true)
+            {
+                if (int.TryParse(Console.ReadLine(), out int value))
+                    return value;
+                Console.WriteLine("Valor inválido, intente de nuevo:");
             }
         }
     }
 }
-

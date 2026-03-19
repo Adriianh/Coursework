@@ -4,11 +4,14 @@ namespace Actividad14.Exercise01
     {
         public static void Run()
         {
-            List<Student> students = new List<Student>();
-            Dictionary<Student, double> averages = new Dictionary<Student, double>();
+            var students = new List<Student>();
 
             Console.WriteLine("¿Cuántos estudiantes desea ingresar?");
-            int count = int.Parse(Console.ReadLine()!);
+            if (!int.TryParse(Console.ReadLine(), out int count) || count <= 0)
+            {
+                Console.WriteLine("Cantidad inválida.");
+                return;
+            }
 
             for (int i = 0; i < count; i++)
             {
@@ -16,39 +19,53 @@ namespace Actividad14.Exercise01
                 string name = Console.ReadLine()!;
 
                 Console.WriteLine("Ingrese la nota #1");
-                double grade1 = double.Parse(Console.ReadLine()!);
+                double grade1 = ReadDouble();
 
                 Console.WriteLine("Ingrese la nota #2");
-                double grade2 = double.Parse(Console.ReadLine()!);
+                double grade2 = ReadDouble();
 
                 Console.WriteLine("Ingrese la nota #3");
-                double grade3 = double.Parse(Console.ReadLine()!);
+                double grade3 = ReadDouble();
 
-                Student student = new Student(name, grade1, grade2, grade3);
-                students.Add(student);
+                students.Add(new Student(name, grade1, grade2, grade3));
             }
 
-            Console.WriteLine("Estudiantes registrados: ");
+            Console.WriteLine("Estudiantes registrados:");
             foreach (var student in students)
             {
                 student.ShowInformation();
-                double average = student.Average();
-                averages.Add(student, average);
+                Console.WriteLine($"Promedio: {student.Average()}");
             }
 
-            KeyValuePair<Student, double> averageMax = new KeyValuePair<Student, double>();
-            foreach (var item in averages)
+            if (students.Count > 0)
             {
-                if (item.Value > averageMax.Value)
+                var best = students[0];
+                double bestAvg = best.Average();
+                foreach (var student in students)
                 {
-                    averageMax = item;
+                    double avg = student.Average();
+                    if (avg > bestAvg)
+                    {
+                        best = student;
+                        bestAvg = avg;
+                    }
                 }
+                Console.WriteLine($"\nEl estudiante con el mejor promedio es {best.Name} ({bestAvg})");
             }
-            if (averageMax.Key != null)
+            else
             {
-                Console.WriteLine($"El estudiante con el mejor promedio es {averageMax.Key.Name} y su promedio fue de {averageMax.Value}");
+                Console.WriteLine("No hay estudiantes registrados.");
+            }
+        }
+
+        private static double ReadDouble()
+        {
+            while (true)
+            {
+                if (double.TryParse(Console.ReadLine(), out double value))
+                    return value;
+                Console.WriteLine("Valor inválido, intente de nuevo:");
             }
         }
     }
 }
-
