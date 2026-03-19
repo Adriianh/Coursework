@@ -6,6 +6,8 @@ namespace Assignment15.Exercise04
         {
             int birthYear = ValidateBirthYear("Ingrese su año de nacimiento (entre 1900 y 2026): ");
             Console.WriteLine($"\nSu año de nacimiento es: {birthYear}");
+            Console.WriteLine("Presione cualquier tecla para continuar...");
+            Console.ReadKey();
         }
         
         private static int ValidateBirthYear(string prompt)

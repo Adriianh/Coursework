@@ -6,6 +6,8 @@ namespace Assignment15.Exercise05
         {
             string parity = ResolveNumberParity("Ingrese un número: ");
             Console.WriteLine($"\nSu número es {parity}.");
+            Console.WriteLine("Presione cualquier tecla para continuar...");
+            Console.ReadKey();
         }
 
         private static string ResolveNumberParity(string prompt)

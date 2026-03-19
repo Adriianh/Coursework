@@ -6,6 +6,8 @@ namespace Assignment15.Exercise03
         {
             int studentsAmount = ValidateStudentsAmount("¿Cuántos estudiantes hay en el curso? ");
             Console.WriteLine($"\nHay {studentsAmount} estudiantes en el curso.");
+            Console.WriteLine("Presione cualquier tecla para continuar...");
+            Console.ReadKey();
         }
 
         private static int ValidateStudentsAmount(string prompt)

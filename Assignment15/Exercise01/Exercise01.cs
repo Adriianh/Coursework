@@ -6,6 +6,8 @@ namespace Assignment15.Exercise01
         {
             int age = ReadValidAge("Ingrese su edad: ");
             Console.WriteLine($"\nSu edad es: {age}");
+            Console.WriteLine("Presione cualquier tecla para continuar...");
+            Console.ReadKey();
         }
 
         private static int ReadValidAge(string prompt)
