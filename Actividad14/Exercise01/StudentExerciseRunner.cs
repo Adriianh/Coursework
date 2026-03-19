@@ -7,12 +7,8 @@ namespace Actividad14.Exercise01
             var students = new List<Student>();
 
             Console.WriteLine("¿Cuántos estudiantes desea ingresar?");
-            if (!int.TryParse(Console.ReadLine(), out int count) || count <= 0)
-            {
-                Console.WriteLine("Cantidad inválida.");
-                return;
-            }
-
+            int count = ReadInt();
+            
             for (int i = 0; i < count; i++)
             {
                 Console.WriteLine("Ingrese el nombre del estudiante: ");
@@ -34,7 +30,6 @@ namespace Actividad14.Exercise01
             foreach (var student in students)
             {
                 student.ShowInformation();
-                Console.WriteLine($"Promedio: {student.Average()}");
             }
 
             if (students.Count > 0)
@@ -44,13 +39,12 @@ namespace Actividad14.Exercise01
                 foreach (var student in students)
                 {
                     double avg = student.Average();
-                    if (avg > bestAvg)
-                    {
-                        best = student;
-                        bestAvg = avg;
-                    }
+                    if (!(avg > bestAvg)) continue;
+                    
+                    best = student;
+                    bestAvg = avg;
                 }
-                Console.WriteLine($"\nEl estudiante con el mejor promedio es {best.Name} ({bestAvg})");
+                Console.WriteLine($"\nEl estudiante con el mejor promedio es {best.Name} ({bestAvg:F2})");
             }
             else
             {
@@ -65,6 +59,15 @@ namespace Actividad14.Exercise01
                 if (double.TryParse(Console.ReadLine(), out double value))
                     return value;
                 Console.WriteLine("Valor inválido, intente de nuevo:");
+            }
+        }
+        
+        private static int ReadInt()
+        {
+            while (true)
+            {
+                if (int.TryParse(Console.ReadLine(), out int value))
+                    return value;
             }
         }
     }

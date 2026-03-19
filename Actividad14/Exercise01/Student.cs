@@ -27,6 +27,7 @@ namespace Actividad14.Exercise01
             Console.WriteLine($"  - Nota 1: {Grade1}");
             Console.WriteLine($"  - Nota 2: {Grade2}");
             Console.WriteLine($"  - Nota 3: {Grade3}");
+            Console.WriteLine($"  - Promedio: {Average():F2}");
         }
     }
 }
