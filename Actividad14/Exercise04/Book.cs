@@ -26,9 +26,11 @@ namespace Actividad14.Exercise04
         public void PrintBookInformation()
         {
             Console.WriteLine($"Título: {Title}");
-            Console.WriteLine($"Autor: {Author}");
-            Console.WriteLine($"Categoría: {Category}");
-            Console.WriteLine($"Número de páginas: {TotalPages}");
+            Console.WriteLine($"  - Autor: {Author}");
+            Console.WriteLine($"  - Categoría: {Category}");
+            Console.WriteLine($"  - Número de páginas: {TotalPages}");
+            Console.Write($"  - Clasificación del libro: ");
+            BookClassification();
         }
     }
 }
