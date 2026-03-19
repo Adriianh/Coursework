@@ -1,6 +1,6 @@
-namespace Assignment15.Exercise05
+namespace Assignment15.Exercises
 {
-    public static class ExerciseRunner
+    public static class Exercise05Runner
     {
         public static void Run()
         {

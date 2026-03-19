@@ -1,16 +1,16 @@
-namespace Assignment15.Exercise01
+namespace Assignment15.Exercises
 {
-    public static class ExerciseRunner
+    public static class Exercise07Runner
     {
         public static void Run()
         {
-            int age = ReadValidAge("Ingrese su edad: ");
-            Console.WriteLine($"\nSu edad es: {age}");
+            decimal salary = ValidateSalary("Ingrese su salario mensual: ");
+            Console.WriteLine($"\nSu salario mensual es: {salary:C}");
             Console.WriteLine("Presione cualquier tecla para continuar...");
             Console.ReadKey();
         }
 
-        private static int ReadValidAge(string prompt)
+        private static decimal ValidateSalary(string prompt)
         {
             while (true)
             {
@@ -23,11 +23,11 @@ namespace Assignment15.Exercise01
                     continue;
                 }
                 
-                if (int.TryParse(input, out int age) && (age >= 0 && age <= 120))
+                if (decimal.TryParse(input, out decimal salary) && (salary >= 0))
                 {
-                    return age;
+                    return salary;
                 }
-                Console.WriteLine("Edad inválida. Debe ser un número entre 0 y 120.");
+                Console.WriteLine("Salario inválido. Debe ser un número mayor que 0.");
             }
         }
     }

@@ -1,4 +1,6 @@
-﻿namespace Assignment15
+﻿using Assignment15.Exercises;
+
+namespace Assignment15
 {
     internal abstract class Program
     {
@@ -30,47 +32,47 @@
                 switch (input)
                 {
                     case "0":
-                        Exercise00.ExerciseRunner.Run();
+                        Exercise00Runner.Run();
                         Console.ReadKey();
                         break;
                     case "1":
-                        Exercise01.ExerciseRunner.Run();
+                        Exercise01Runner.Run();
                         Console.ReadKey();
                         break;
                     case "2":
-                        Exercise02.ExerciseRunner.Run();
+                        Exercise02Runner.Run();
                         Console.ReadKey();
                         break;
                     case "3":
-                        Exercise03.ExerciseRunner.Run();
+                        Exercise03Runner.Run();
                         Console.ReadKey();
                         break;
                     case "4":
-                        Exercise04.ExerciseRunner.Run();
+                        Exercise04Runner.Run();
                         Console.ReadKey();
                         break;
                     case "5":
-                        Exercise05.ExerciseRunner.Run();
+                        Exercise05Runner.Run();
                         Console.ReadKey();
                         break;
                     case "6":
-                        Exercise06.ExerciseRunner.Run();
+                        Exercise06Runner.Run();
                         Console.ReadKey();
                         break;
                     case "7":
-                        Exercise07.ExerciseRunner.Run();
+                        Exercise07Runner.Run();
                         Console.ReadKey();
                         break;
                     case "8":
-                        Exercise08.ExerciseRunner.Run();
+                        Exercise08Runner.Run();
                         Console.ReadKey();
                         break;
                     case "9":
-                        Exercise09.ExerciseRunner.Run();
+                        Exercise09Runner.Run();
                         Console.ReadKey();
                         break;
                     case "10":
-                        Exercise10.ExerciseRunner.Run();
+                        Exercise10Runner.Run();
                         Console.ReadKey();
                         break;
                     default:

@@ -1,33 +1,33 @@
-namespace Assignment15.Exercise07
+namespace Assignment15.Exercises
 {
-    public static class ExerciseRunner
+    public static class Exercise03Runner
     {
         public static void Run()
         {
-            decimal salary = ValidateSalary("Ingrese su salario mensual: ");
-            Console.WriteLine($"\nSu salario mensual es: {salary:C}");
+            int studentsAmount = ValidateStudentsAmount("¿Cuántos estudiantes hay en el curso? ");
+            Console.WriteLine($"\nHay {studentsAmount} estudiantes en el curso.");
             Console.WriteLine("Presione cualquier tecla para continuar...");
             Console.ReadKey();
         }
 
-        private static decimal ValidateSalary(string prompt)
+        private static int ValidateStudentsAmount(string prompt)
         {
             while (true)
             {
                 Console.Write(prompt);
                 string input = Console.ReadLine()!;
-                
+            
                 if (string.IsNullOrWhiteSpace(input))
                 {
                     Console.WriteLine("Entrada vacía. Intente de nuevo.");
                     continue;
                 }
-                
-                if (decimal.TryParse(input, out decimal salary) && (salary >= 0))
+
+                if (int.TryParse(Console.ReadLine(), out int amount) && (amount > 0))
                 {
-                    return salary;
+                    return amount;
                 }
-                Console.WriteLine("Salario inválido. Debe ser un número mayor que 0.");
+                Console.WriteLine("Dato inválida. Debe ser un número mayor que 0.");    
             }
         }
     }

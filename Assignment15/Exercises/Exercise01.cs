@@ -1,33 +1,33 @@
-namespace Assignment15.Exercise03
+namespace Assignment15.Exercises
 {
-    public static class ExerciseRunner
+    public static class Exercise01Runner
     {
         public static void Run()
         {
-            int studentsAmount = ValidateStudentsAmount("¿Cuántos estudiantes hay en el curso? ");
-            Console.WriteLine($"\nHay {studentsAmount} estudiantes en el curso.");
+            int age = ReadValidAge("Ingrese su edad: ");
+            Console.WriteLine($"\nSu edad es: {age}");
             Console.WriteLine("Presione cualquier tecla para continuar...");
             Console.ReadKey();
         }
 
-        private static int ValidateStudentsAmount(string prompt)
+        private static int ReadValidAge(string prompt)
         {
             while (true)
             {
                 Console.Write(prompt);
                 string input = Console.ReadLine()!;
-            
+                
                 if (string.IsNullOrWhiteSpace(input))
                 {
                     Console.WriteLine("Entrada vacía. Intente de nuevo.");
                     continue;
                 }
-
-                if (int.TryParse(Console.ReadLine(), out int amount) && (amount > 0))
+                
+                if (int.TryParse(input, out int age) && (age >= 0 && age <= 120))
                 {
-                    return amount;
+                    return age;
                 }
-                Console.WriteLine("Dato inválida. Debe ser un número mayor que 0.");    
+                Console.WriteLine("Edad inválida. Debe ser un número entre 0 y 120.");
             }
         }
     }
