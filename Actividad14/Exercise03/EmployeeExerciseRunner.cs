@@ -7,7 +7,7 @@ namespace Actividad14.Exercise03
             List<Employee> employees = new List<Employee>();
 
             Console.WriteLine("¿Cuántos empleados desea ingresar?");
-            int count = int.Parse(Console.ReadLine()!);
+            int count = ReadInt();
 
             for (int i = 0; i < count; i++)
             {
@@ -18,7 +18,7 @@ namespace Actividad14.Exercise03
                 string position = Console.ReadLine()!;
                 
                 Console.WriteLine("Ingrese el salario del empleado: ");
-                double salary = double.Parse(Console.ReadLine()!);
+                double salary = ReadDouble();
                 
                 Employee employee = new Employee(name, position, salary);
                 employees.Add(employee);
@@ -34,6 +34,26 @@ namespace Actividad14.Exercise03
                 Console.WriteLine($"    - Bono anual: Q{employee.CalculateBonus():F2}");
                 Console.Write("    - Clasificación salarial: ");
                 employee.SalaryClassification();
+            }
+        }
+        
+        private static double ReadDouble()
+        {
+            while (true)
+            {
+                if (double.TryParse(Console.ReadLine(), out double value))
+                    return value;
+                Console.WriteLine("Valor inválido, intente de nuevo:");
+            }
+        }
+
+        private static int ReadInt()
+        {
+            while (true)
+            {
+                if (int.TryParse(Console.ReadLine(), out int value))
+                    return value;
+                Console.WriteLine("Valor inválido, intente de nuevo:");
             }
         }
     }
