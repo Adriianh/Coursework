@@ -1,8 +1,8 @@
-namespace Assignment15
+namespace Assignment15.Exercise00
 {
-    public class Exercise00Runner
+    public class ExerciseRunner
     {
-        static void Run(string[] args)
+        public static void Run()
         {
             int age;
             bool isValid = false;
@@ -12,12 +12,12 @@ namespace Assignment15
                 Console.Write("Ingrese su edad: ");
                 if (int.TryParse(Console.ReadLine(), out age) && (age > 0 && age < 120))
                 {
-                    Console.WriteLine($"Edad válida, usted tiene {age}");
+                    Console.WriteLine($"Edad vï¿½lida, usted tiene {age}");
                     isValid = true;
                 }
                 else
                 {
-                    Console.WriteLine("Edad inválida.");
+                    Console.WriteLine("Edad invï¿½lida.");
                     Console.ReadKey();
                     Console.Clear();
                 }
