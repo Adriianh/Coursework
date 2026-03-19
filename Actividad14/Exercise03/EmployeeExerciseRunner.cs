@@ -14,10 +14,10 @@ namespace Actividad14.Exercise03
                 Console.Write("Ingrese el nombre del empleado: ");
                 string name = Console.ReadLine()!;
 
-                Console.WriteLine("Ingrese el cargo del empleado: ");
+                Console.Write("Ingrese el cargo del empleado: ");
                 string position = Console.ReadLine()!;
                 
-                Console.WriteLine("Ingrese el salario del empleado: ");
+                Console.Write("Ingrese el salario del empleado: ");
                 double salary = ReadDouble();
                 
                 Employee employee = new Employee(name, position, salary);
