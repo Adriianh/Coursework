@@ -7,14 +7,11 @@ namespace Actividad14.Exercise02
             List<Product> products = new List<Product>();
 
             Console.WriteLine("¿Cuántos productos desea ingresar?");
-            if (!int.TryParse(Console.ReadLine(), out int count) || count <= 0)
-            {
-                Console.WriteLine("Cantidad inválida.");
-                return;
-            }
-
+            int count = ReadInt();
+            
             for (int i = 0; i < count; i++)
             {
+                Console.WriteLine($"\nRegistrando producto #{i + 1}:");
                 Console.Write("Ingrese el nombre del producto: ");
                 string name = Console.ReadLine()!;
 
@@ -26,9 +23,11 @@ namespace Actividad14.Exercise02
 
                 products.Add(new Product(name, price, quantity));
             }
-
-            double totalValue = 0;
+            
+            Console.Clear();
             Console.WriteLine("Productos registrados:");
+            
+            double totalValue = 0;
             foreach (var product in products)
             {
                 Console.WriteLine($"Producto: {product.Name}");
@@ -48,7 +47,7 @@ namespace Actividad14.Exercise02
                         mostExpensive = product;
                     }
                 }
-                Console.WriteLine($"El producto con el mayor costo es: {mostExpensive.Name} y su precio es {mostExpensive.Price}");
+                Console.WriteLine($"\nEl producto con el mayor costo es: {mostExpensive.Name} y su precio es {mostExpensive.Price}");
             }
             else
             {

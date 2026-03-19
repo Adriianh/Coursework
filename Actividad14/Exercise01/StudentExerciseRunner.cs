@@ -11,6 +11,7 @@ namespace Actividad14.Exercise01
             
             for (int i = 0; i < count; i++)
             {
+                Console.WriteLine($"\nRegistrando estudiante #{i + 1}:");
                 Console.WriteLine("Ingrese el nombre del estudiante: ");
                 string name = Console.ReadLine()!;
 
@@ -22,10 +23,11 @@ namespace Actividad14.Exercise01
 
                 Console.WriteLine("Ingrese la nota #3");
                 double grade3 = ReadDouble();
-
+                
                 students.Add(new Student(name, grade1, grade2, grade3));
             }
 
+            Console.Clear();
             Console.WriteLine("Estudiantes registrados:");
             foreach (var student in students)
             {

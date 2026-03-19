@@ -11,6 +11,7 @@ namespace Actividad14.Exercise03
 
             for (int i = 0; i < count; i++)
             {
+                Console.WriteLine($"\nRegistrando empleado #{i + 1}:");
                 Console.Write("Ingrese el nombre del empleado: ");
                 string name = Console.ReadLine()!;
 
@@ -24,6 +25,7 @@ namespace Actividad14.Exercise03
                 employees.Add(employee);
             }
 
+            Console.Clear();
             Console.WriteLine("Los empleados registrados son: ");
             foreach (var employee in employees)
             {               

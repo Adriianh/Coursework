@@ -11,6 +11,7 @@ namespace Actividad14.Exercise04
 
             for (int i = 0; i < count; i++)
             {
+                Console.WriteLine($"\nRegistrando libro #{i + 1}:");
                 Console.Write("Ingrese el título del libro: ");
                 string title = Console.ReadLine()!;
 
