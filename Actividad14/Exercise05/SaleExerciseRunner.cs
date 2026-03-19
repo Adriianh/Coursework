@@ -24,8 +24,10 @@ namespace Actividad14.Exercise05
                 sales.Add(new Sale(productName, price, quantity));
             }
 
-            double totalSales = 0;
+            Console.Clear();
             Console.WriteLine("\nVentas registradas:");
+            
+            double totalSales = 0;
             foreach (var sale in sales)
             {
                 Console.WriteLine($"Producto: {sale.ProductName}");
