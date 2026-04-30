@@ -1,13 +1,13 @@
 namespace Assignment22.Entity
 {
-    class Coordinador : Usuario
+    class Decano : Usuario
     {
-        public string Departamento { get; set; }
+        public string Facultad { get; set; }
 
-        public Coordinador(string nombre, string correo, string contrasena, string departamento)
+        public Decano(string nombre, string correo, string contrasena, string facultad)
             : base(nombre, correo, contrasena)
         {
-            Departamento = departamento;
+            Facultad = facultad;
         }
 
         public void AsignarProfesor(string profesor, string curso)
@@ -17,7 +17,7 @@ namespace Assignment22.Entity
 
         public void GenerarReporte()
         {
-            Console.WriteLine($"[Coordinador] {Nombre} generó un reporte del departamento: {Departamento}");
+            Console.WriteLine($"[Coordinador] {Nombre} generó un reporte del departamento: {Facultad}");
         }
     }
 }
