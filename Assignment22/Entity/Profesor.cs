@@ -1,14 +1,9 @@
 namespace Assignment22.Entity
 {
-    class Profesor : Usuario
+    class Profesor(string nombre, string correo, string contrasena, string materia)
+        : Usuario(nombre, correo, contrasena)
     {
-        public string Materia { get; set; }
-
-        public Profesor(string nombre, string correo, string contrasena, string materia)
-            : base(nombre, correo, contrasena)
-        {
-            Materia = materia;
-        }
+        private string Materia { get; set; } = materia;
 
         public void PublicarMaterial(string material)
         {

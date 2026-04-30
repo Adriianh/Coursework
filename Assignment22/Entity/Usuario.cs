@@ -1,17 +1,10 @@
 namespace Assignment22.Entity
 {
-    class Usuario
+    class Usuario(string nombre, string correo, string contrasena)
     {
-        public string Nombre { get; set; }
-        public string Correo  { get; set; }
-        public string Contrasena { get; set; }
-
-        public Usuario(string nombre, string correo, string contrasena)
-        {
-            Nombre     = nombre;
-            Correo     = correo;
-            Contrasena = contrasena;
-        }
+        public string Nombre { get; set; } = nombre;
+        public string Correo  { get; set; } = correo;
+        public string Contrasena { get; set; } = contrasena;
 
         public void IniciarSesion()
         {

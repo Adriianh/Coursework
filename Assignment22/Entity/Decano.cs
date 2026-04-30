@@ -1,14 +1,9 @@
 namespace Assignment22.Entity
 {
-    class Decano : Usuario
+    class Decano(string nombre, string correo, string contrasena, string facultad)
+        : Usuario(nombre, correo, contrasena)
     {
-        public string Facultad { get; set; }
-
-        public Decano(string nombre, string correo, string contrasena, string facultad)
-            : base(nombre, correo, contrasena)
-        {
-            Facultad = facultad;
-        }
+        private string Facultad { get; set; } = facultad;
 
         public void AsignarProfesor(string profesor, string curso)
         {
